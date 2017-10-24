@@ -1,10 +1,10 @@
-var bip39 = require("bip39");
-var hdkey = require('ethereumjs-wallet/hdkey');
-var ProviderEngine = require("web3-provider-engine");
-var FiltersSubprovider = require('web3-provider-engine/subproviders/filters.js');
-var WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js');
-var Web3Subprovider = require("web3-provider-engine/subproviders/web3.js");
-var Web3 = require("web3");
+const bip39 = require('react-native-bip39');
+const hdkey = require('ethereumjs-wallet/hdkey');
+const ProviderEngine = require('web3-provider-engine');
+const FiltersSubprovider = require('web3-provider-engine/subproviders/filters.js');
+const WalletSubprovider = require('web3-provider-engine/subproviders/wallet.js');
+const Web3Subprovider = require('web3-provider-engine/subproviders/web3.js');
+const Web3 = require('web3');
 
 function HDWalletProvider(mnemonic, provider_url, address_index) {
   this.mnemonic = mnemonic;

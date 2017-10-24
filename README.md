@@ -1,10 +1,12 @@
-# truffle-hdwallet-provider
-HD Wallet-enabled Web3 provider. Use it to sign transactions for addresses derived from a 12-word mnemonic.
+# react-native-truffle-hdwallet-provider
+HD Wallet-enabled Web3 provider for React Native. Use it to sign transactions for addresses derived from a 12-word mnemonic.
 
 ## Install
 
-```
-$ npm install truffle-hdwallet-provider
+```shell
+yarn add git+https://github.com/bpeters/react-native-truffle-hdwallet-provider.git
+
+react-native link
 ```
 
 ## General Usage
@@ -12,7 +14,7 @@ $ npm install truffle-hdwallet-provider
 You can use this provider wherever a Web3 provider is needed, not just in Truffle. For Truffle-specific usage, see next section.
 
 ```javascript
-var HDWalletProvider = require("truffle-hdwallet-provider");
+var HDWalletProvider = require("react-native-truffle-hdwallet-provider");
 var mnemonic = "opinion destroy betray ..."; // 12 word mnemonic
 var provider = new HDWalletProvider(mnemonic, "http://localhost:8545");
 
@@ -27,28 +29,3 @@ Parameters:
 - `mnemonic`: `string`. 12 word mnemonic which addresses are created from.
 - `provider_uri`: `string`. URI of Ethereum client to send all other non-transaction-related Web3 requests.
 - `address_index`: `number`, optional. If specified, will tell the provider to manage the address at the index specified. Defaults to the first address (index `0`).
-
-## Truffle Usage
-
-You can easily use this within a Truffle configuration. For instance:
-
-truffle.js
-```javascript
-var HDWalletProvider = require("truffle-hdwallet-provider");
-
-var mnemonic = "opinion destroy betray ...";
-
-module.exports = {
-  networks: {
-    development: {
-      host: "localhost",
-      port: 8545,
-      network_id: "*" // Match any network id
-    },
-    ropsten: {
-      provider: new HDWalletProvider(mnemonic, "https://ropsten.infura.io/"),
-      network_id: 3
-    }
-  }
-};
-```
